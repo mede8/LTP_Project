@@ -1,7 +1,9 @@
 name: ltp_env
+
 channels:
   - conda-forge
   - defaults
+
 dependencies:
   - python=3.9
   - pip
@@ -10,8 +12,8 @@ dependencies:
   - pytorch
   - torchvision
   - torchaudio
+
   - pip:
-    - .
     - transformers
     - evaluate
     - datasets
