@@ -1,0 +1,24 @@
+name: ltp_env
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  - pip
+  - numpy
+  - pandas
+  - pytorch
+  - torchvision
+  - torchaudio
+  - pip:
+    - .
+    - transformers
+    - evaluate
+    - datasets
+    - keras==2.11
+    - tf-keras
+    - protobuf==3.20.3
+    - sentencepiece
+    - nltk
+    - rouge_score
+    - abs
