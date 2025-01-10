@@ -1,6 +1,9 @@
+import sys
 import os
-from Modules import FlanT5Model
-from Modules import DataLoader as dl
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../')))
+
+from Modules.flan_model import FlanT5Model
+from Modules.data_loader import DataLoader as dl
 
 
 if __name__ == "__main__":
