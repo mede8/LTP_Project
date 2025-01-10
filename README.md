@@ -19,3 +19,29 @@ Steps to consider when developing the code repository:
 5. Evaluation framework implementaion (e.g. BLEU or ROUGE)
 
 6. Compare results with baselines outputs (e.g. non-fine-tuned LLM narratives).
+
+
+## Creating and activating the environment
+
+### Requirements
+
+To run this project, you need to set up a Conda environment with the necessary dependencies.
+
+### Conda Installation
+
+Ensure you have **Conda** installed on your system. You can use either **Miniconda** (lightweight version) or **Anaconda** (full distribution). 
+
+- [Miniconda Installation](https://docs.conda.io/en/latest/miniconda.html)
+- [Anaconda Installation](https://www.anaconda.com/products/distribution)
+
+Once **Conda** is installed, you can create and activate the environment as follows.
+
+### Create the envirnonment
+``` bash
+conda env create --file environment.yml
+```
+
+### Activate the environment:
+``` bash
+conda activate ltp_env
+```
