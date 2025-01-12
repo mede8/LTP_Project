@@ -1,0 +1,39 @@
+2025-01-12 04:06:46,255 - INFO - Generating stories from the validation dataset...
+2025-01-12 04:06:52,833 - INFO - Evaluating the model...
+2025-01-12 04:06:55,083 - INFO - Use pytorch device_name: cuda
+2025-01-12 04:06:55,083 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-12 04:06:59,508 - INFO - Use pytorch device_name: cuda
+2025-01-12 04:06:59,508 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-12 04:07:03,118 - INFO - Use pytorch device_name: cuda
+2025-01-12 04:07:03,118 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-12 04:07:06,354 - INFO - Use pytorch device_name: cuda
+2025-01-12 04:07:06,355 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-12 04:07:09,440 - INFO - Use pytorch device_name: cuda
+2025-01-12 04:07:09,441 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-12 04:07:13,198 - INFO - Use pytorch device_name: cuda
+2025-01-12 04:07:13,198 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-12 04:07:16,439 - INFO - Use pytorch device_name: cuda
+2025-01-12 04:07:16,440 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-12 04:07:19,814 - INFO - Use pytorch device_name: cuda
+2025-01-12 04:07:19,815 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-12 04:07:23,568 - INFO - Use pytorch device_name: cuda
+2025-01-12 04:07:23,568 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-01-12 04:07:26,709 - INFO - Use pytorch device_name: cuda
+2025-01-12 04:07:26,709 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+
+Sample 1:
+Input Prompt: excitement, Color_Field_Painting: The bright colours make me feel very positive.
+Reference Story: The bright colours make me feel very positive.
+Generated Story: I'm a big fan of bright colours. I love the bright colours, and the bright colors make me feel very positive. It's a great way to start a new life with a little bit of excitement. The bright colours make you feel very happy, and it makes you feel like you're in a good mood. If you are looking for a bright colour, you might want to check out the Bright Colours page.
+
+Sample 2:
+Input Prompt: sadness, Expressionism: The woman's head turned downward with eyes closed emits a sense of sadness.
+Reference Story: The woman's head turned downward with eyes closed emits a sense of sadness.
+Generated Story: The woman's head turned downward with her eyes closed, emitting a sense of sadness. She was shocked to learn that she had been in the hospital for a long time. The nurse told her that she would not be able to get out of the hospital if she didn't have a heart attack. When she got home, the nurse asked her to go to the hospital. She said no, but she did not know how to do it.
+
+Sample 3:
+Input Prompt: awe, Impressionism: the sky has a combination of orange and blue colors that resemble a sunset, the light blue looks like a very calm sea, everything looks like a beautiful sunset on the beach
+Reference Story: the sky has a combination of orange and blue colors that resemble a sunset, the light blue looks like a very calm sea, everything looks like a beautiful sunset on the beach
+Generated Story: The sky has a combination of orange and blue colors that resemble a sunset, the light blue looks like a very calm sea, everything looks like an amazing sunset on the beach. Awe, Impressionism: the skies have a mix of oranges and blues that reminiscent of sunsets. The light blue is a great contrast to a beautiful sunset. The lighting is so beautiful that it makes you feel like you're in a place where you don't have to worry about anything else. It's a perfect time to look at the sunset.
+
+Evaluation Metrics: {'bertscore_f1': 0.9035820007324219, 'dissimilarity': 0.31928286850452425}
