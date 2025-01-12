@@ -1,0 +1,9 @@
+torch==1.13.1
+transformers==4.48.0
+datasets==2.12.0
+evaluate==0.4.0
+bert_score
+sentence-transformers==3.3.1
+matplotlib==3.9.3
+optuna==4.1.0
+scikit-learn==1.6.1
