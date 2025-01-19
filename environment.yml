@@ -9,9 +9,11 @@ dependencies:
   - pip
   - numpy
   - pandas
+  - seaborn
   - pytorch
   - torchvision
   - torchaudio
+  - tensorflow==2.11.*
 
   - pip:
     - transformers
@@ -24,3 +26,4 @@ dependencies:
     - nltk
     - rouge_score
     - abs
+    - language_tool_python

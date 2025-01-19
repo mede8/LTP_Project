@@ -67,17 +67,20 @@ class FlanT5Model:
             per_device_train_batch_size=batch_size,
             save_steps=500,
             save_total_limit=2,
-            evaluation_strategy="steps",
+            eval_strategy="steps",
             eval_steps=500,
             logging_dir=f"{output_dir}/logs",
             logging_steps=100,
-            report_to="none"
+            report_to="none",
+            fp16=True,
+            remove_unused_columns=False
         )
 
         trainer = Trainer(
             model=self.model,
             args=training_args,
-            train_dataset=train_dataset
+            train_dataset=train_dataset,
+            eval_dataset=val_dataset
         )
 
         trainer.train()
