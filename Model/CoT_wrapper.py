@@ -1,34 +1,29 @@
-from evaluate import load
-from pathlib import Path
 import os
 import sys
-import logging
-import pandas as pd
+
 sys.path.append(
     os.path.abspath(os.path.join(os.path.dirname(__file__), '../')))
 from Modules.flan_model import FlanT5Model
 from Modules.data_loader import DataLoader as dl
 
+from evaluate import load
+from pathlib import Path
+import logging
+import pandas as pd
+
 
 root = Path(__file__).resolve().parent.parent
-log_dir = root / 'logs'
+log_dir = root / 'Logs'
 log_dir.mkdir(parents=True, exist_ok=True)
 logs_path = log_dir / 'cot_wrapper_info.log'
 
-format_style = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-logging.basicConfig(filename=logs_path, level=logging.INFO,
-                    format=format_style)
+logging.basicConfig(
+    filename=logs_path,
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
 
-
-class Logger:
-    """Simple logger class."""
-    @staticmethod
-    def log_info(message):
-        logging.info(message)
-
-    @staticmethod
-    def log_error(message):
-        logging.error(message)
+logger = logging.getLogger()
 
 
 COT_PROMPT = (
@@ -44,7 +39,7 @@ COT_PROMPT = (
 
 class CoTWrapper:
     def __init__(self, baseline_model: FlanT5Model) -> None:
-        Logger.log_info("Initializing CoT prompting.")
+        logger.info("Initializing CoT prompting.")
         self.baseline_model = baseline_model
 
     def generate_with_cot(self, input_caption: str) -> str:
@@ -65,7 +60,7 @@ class CoTWrapper:
         :param dataset: the validation dataset.
         :return: evaluation metrics.
         """
-        Logger.log_info("Evaluating the model using CoT prompting.")
+        logger.info("Evaluating the model using CoT prompting.")
         rouge = load("rouge")
         bleu = load("bleu")
         predictions, references = [], []
@@ -83,10 +78,10 @@ class CoTWrapper:
                                         references=references)
             bleu_score = bleu.compute(predictions=predictions,
                                       references=references)
-            Logger.log_info("Evaluation completed with ROUGE score: " +
+            logger.info("Evaluation completed with ROUGE score: " +
                             f"{rouge_score} and BLEU score: {bleu_score}.")
         except Exception as e:
-            Logger.log_error(f"Error while evaluating the model: {e}")
+            logger.error(f"Error while evaluating the model: {e}")
             rouge_score = None
             bleu_score = None
 
@@ -114,10 +109,10 @@ if __name__ == "__main__":
     baseline_model = FlanT5Model(model_name="google/flan-t5-large")
     cot_wrapper = CoTWrapper(baseline_model)
 
-    Logger.log_info("Training the model with CoT prompting.")
+    logger.info("Training the model with CoT prompting.")
     train_df = dl.load_artemis_dataset(file_path).map(augment_with_cot)
     cot_wrapper.baseline_model.train(train_df, epochs=5, batch_size=16)
 
-    Logger.log_info("Evaluating the model with CoT prompting.")
+    logger.info("Evaluating the model with CoT prompting.")
     cot_metrics = cot_wrapper.evaluate_with_cot(val_dataset)
     print(cot_metrics)
