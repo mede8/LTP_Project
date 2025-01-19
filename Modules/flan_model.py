@@ -8,7 +8,7 @@ class FlanT5Model:
         self.tokenizer = T5Tokenizer.from_pretrained(model_name, legacy=False)
         self.model = T5ForConditionalGeneration.from_pretrained(model_name)
 
-    def train(self, train_dataset, epochs,
+    def train(self, train_dataset, val_dataset, epochs,
               batch_size, output_dir="./flan_t5_trained"):
         """
         Train the Flan-T5 model on the train dataset.
@@ -19,17 +19,20 @@ class FlanT5Model:
             per_device_train_batch_size=batch_size,
             save_steps=500,
             save_total_limit=2,
-            evaluation_strategy="steps",
+            eval_strategy="steps",
             eval_steps=500,
             logging_dir=f"{output_dir}/logs",
             logging_steps=100,
-            report_to="none"
+            report_to="none",
+            fp16=True,
+            remove_unused_columns=False
         )
 
         trainer = Trainer(
             model=self.model,
             args=training_args,
-            train_dataset=train_dataset
+            train_dataset=train_dataset,
+            eval_dataset=val_dataset
         )
 
         trainer.train()
@@ -55,16 +58,20 @@ class FlanT5Model:
 
         return results
 
-    def generate_story(self, input_prompt):
+    def generate_story(self, input_prompt, min_tokens, max_tokens):
         """
         Generate a descriptive story about a given scene.
         """
         input_prompt = input_prompt + " Write a descriptive story about this scene in a few paragraphs."
         input_ids = self.tokenizer(input_prompt, return_tensors="pt").input_ids
+
+        device = next(self.model.parameters()).device
+        input_ids = input_ids.to(device)
+
         outputs = self.model.generate(
             input_ids,
-            max_new_tokens=500,
-            min_length=500,
+            max_new_tokens=max_tokens,
+            min_length=min_tokens,
             num_beams=5,
             do_sample=True,
             temperature=0.7,
