@@ -51,7 +51,7 @@ class FlanT5Model:
         story = self._ensure_paragraph_length(story, max_lines=5)
         return story
 
-    def train(self, train_dataset, epochs, batch_size, output_dir="./flan_t5_trained"):
+    def train(self, train_dataset, val_dataset, epochs, batch_size, output_dir="./flan_t5_trained"):
         """
         Trains the Flan-T5 model on the provided dataset.
 
