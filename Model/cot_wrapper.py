@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
 import pandas as pd
-from torch.profiler import profile, record_function, ProfilerActivity
+from torch.profiler import profile, ProfilerActivity
 from sentence_transformers import SentenceTransformer, util
 from torch.distributed import destroy_process_group
 from concurrent.futures import ThreadPoolExecutor
