@@ -27,3 +27,14 @@ dependencies:
     - rouge_score
     - abs
     - language_tool_python
+    - sentence_transformers
+    - torch
+    - peft
+    - optuna
+    - matplotlib
+    - typing-extensions
+    - concurrent
+    - pathlib
+    - json
+    - sys
+    - logging

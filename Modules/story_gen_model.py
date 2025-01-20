@@ -5,7 +5,6 @@ from transformers import (
     AutoModelForSeq2SeqLM,
 )
 from peft import get_peft_model, LoraConfig, TaskType
-from evaluate import load
 from sentence_transformers import SentenceTransformer, util
 import matplotlib.pyplot as plt
 import logging
