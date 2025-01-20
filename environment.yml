@@ -5,36 +5,19 @@ channels:
   - defaults
 
 dependencies:
-  - python=3.9
+  - python=3.8
   - pip
-  - numpy
-  - pandas
-  - seaborn
-  - pytorch
-  - torchvision
-  - torchaudio
-  - tensorflow==2.11.*
-
   - pip:
-    - transformers
-    - evaluate
-    - datasets
-    - keras==2.11
-    - tf-keras
-    - protobuf==3.20.3
-    - sentencepiece
-    - nltk
-    - rouge_score
-    - abs
-    - language_tool_python
-    - sentence_transformers
-    - torch
-    - peft
-    - optuna
-    - matplotlib
-    - typing-extensions
-    - concurrent
-    - pathlib
-    - json
-    - sys
-    - logging
+      - evaluate
+      - sentence-transformers
+      - torch
+      - matplotlib
+      - numpy
+      - seaborn
+      - pandas
+      - optuna
+      - datasets
+      - transformers
+      - peft
+      - language_tool_python
+      - nltk
