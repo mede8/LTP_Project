@@ -228,4 +228,8 @@ class StoryGenerationModel:
         plt.bar(range(len(dissimilarity_scores)), dissimilarity_scores, color="green")
         plt.title("Dissimilarity Scores for Generated Stories")
         plt.xlabel("Sample Index")
-        plt.ylabel
+        plt.ylabel("Dissimilarity Score (1 - Similarity)")
+
+        plt.tight_layout()
+        plt.savefig("../Results/metrics_plot.png")
+        plt.close()

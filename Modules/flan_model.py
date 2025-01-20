@@ -180,5 +180,5 @@ class FlanT5Model:
         plt.ylabel("Dissimilarity Score (1 - Similarity)")
 
         plt.tight_layout()
-        plt.savefig("/scratch/s5107318/LTP/LTP_Project/Results/baseline_metrics_plot.png")
+        plt.savefig("../Results/baseline_metrics_plot.png")
         plt.close()
